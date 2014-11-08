@@ -1,0 +1,27 @@
+{
+  "author": "Leo Zhang <zhangchiqing@gmail.com>",
+  "name": "chromepet",
+  "description": "Report new extension version published on Chrome Web Store",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ZenHubIO/chromepet",
+  "keywords": ["chrome", "extension"],
+  "bin": {
+    "chromepet": "./bin/chromepet.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ZenHubIO/chromepet.git"
+  },
+  "main": "./src/chromepet.js",
+  "engines": {
+    "node": ">=0.7.12",
+    "npm": ">=1.4.6"
+  },
+  "scripts": {},
+  "dependencies": {
+    "cheerio": "^0.18.0",
+    "node-slack": "0.0.5",
+    "request": "^2.47.0"
+  },
+  "license": "MIT"
+}

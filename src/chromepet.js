@@ -56,7 +56,7 @@ ChromePet.prototype._scrape = function() {
 
     var extension = me._parseExtensionInfo(body);
     if (me._isPublished(extension.version)) {
-       me.stopScraping(null, extension);
+       return me.stopScraping(null, extension);
     }
 
     me.emitter.emit('data', extension);

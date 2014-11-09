@@ -5,7 +5,7 @@ var util = require('util');
 
 var chromepet = require('../src/chromepet');
 
-var manifestPath = join(__dirname, '../package.json');
+var manifestPath = join(__dirname, './manifest.json');
 console.log('reading manifest from path', manifestPath);
 var manifest = require(manifestPath);
 var publishingVersion = manifest.version;

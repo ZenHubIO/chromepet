@@ -1,6 +1,14 @@
 language: node_js
 node_js:
   - "0.10"
+
 branches:
   only:
     - master
+
+notifications:
+  email:
+    recipients:
+      - leo@axiomzen.co
+    on_success: change
+    on_failure: always

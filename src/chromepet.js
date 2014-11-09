@@ -6,7 +6,8 @@ var cheerio = require('cheerio');
 
 
 var usage = function() {
-  return 'extensionURL cannot be empty';
+  return 'extensionURL cannot be empty. Example:\n' +
+    'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd';
 };
 
 
@@ -49,7 +50,7 @@ ChromePet.prototype.watch = function() {
 ChromePet.prototype._scrape = function() {
   var me = this;
 
-  request(this.options.extensionURL, function(err, response, body) {
+  request(this.options.extensionURL + '/detail', function(err, response, body) {
     if (err) {
       return me.stopScraping(err);
     }

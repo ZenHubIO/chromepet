@@ -8,7 +8,7 @@ describe('chromepet', function() {
     this.timeout(5000);
     var counter = 0;
     var pet = chromepet({
-      extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd/details',
+      extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd',
       publishingVersion: '0.0.1',
       watchIntervalMS: 1000,
     });
@@ -29,7 +29,7 @@ describe('chromepet', function() {
 
   it('should stop scraping when new version is published', function(done) {
     chromepet({
-      extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd/details',
+      extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd',
       publishingVersion: publishingVersion,
       watchIntervalMS: 1000,
     })

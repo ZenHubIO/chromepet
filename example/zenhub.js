@@ -11,7 +11,7 @@ var manifest = require(manifestPath);
 var publishingVersion = manifest.version;
 
 chromepet({
-  extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd/details',
+  extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd',
   publishingVersion: publishingVersion,
   watchIntervalMS: 1000,
 })

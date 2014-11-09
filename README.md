@@ -1,9 +1,30 @@
 ChromePet
 =========
 
-Report new extension version published on Chrome Web Store
+A node.js command line app for reporting new extension version published on Chrome Web Store
 
 ## Quick Start
+
+```
+npm install -g chromepet
+
+$ chromepet -u https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd -v 1.0.3
+```
+
+#### Result
+```
+Publishing version: 1.0.3; Published version: 1.0.2; Not published yet
+Publishing version: 1.0.3; Published version: 1.0.2; Not published yet
+Publishing version: 1.0.3; Published version: 1.0.2; Not published yet
+Publishing version: 1.0.3; Published version: 1.0.2; Not published yet
+...
+Publishing version: 1.0.3; Published version: 1.0.2; Not published yet
+New version 1.0.3 is published! UserDownloads:9,823.
+Total seconds: 1.132
+```
+
+## Module API
+
 ```
 npm install chromepet
 ```
@@ -14,7 +35,7 @@ This file `example/zenhub.js` is to check if a new version of ZenHub Chrome Exte
 var chromepet = require('chromepet');
 
 chromepet({
-  extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd/details',
+  extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd',
   publishingVersion: '1.0.3'
 })
 .watch()
@@ -26,7 +47,7 @@ chromepet({
 });
 ```
 
-Result:
+#### Result
 ```
 $ node example/zenhub.js
 Publishing version: 1.0.3; Published version: 1.0.2; Not published yet
@@ -55,7 +76,7 @@ var manifest = require(manifestPath);
 var publishingVersion = manifest.version;
 
 chromepet({
-  extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd/details',
+  extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd',
   publishingVersion: publishingVersion,
   watchIntervalMS: 1000,
 })
@@ -79,4 +100,3 @@ chromepet({
 
 ## Contributors
 * [Leo Zhang](https://github.com/zhangchiqing)
-

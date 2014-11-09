@@ -8,6 +8,7 @@
     "chrome",
     "extension"
   ],
+  "bin": "./bin/chromepet.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:ZenHubIO/chromepet.git"

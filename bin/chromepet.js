@@ -20,7 +20,7 @@ chromepet({
 })
 .on('data', function(extension) {
   console.log(util.format('Publishing version: %s; Published version: %s; Not published yet',
-    publishingVersion,
+    commander.version,
     extension.version));
 })
 .on('end', function(extension, totalSeconds) {

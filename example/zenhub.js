@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var join = path.join;
+var util = require('util');
 
 var chromepet = require('../src/chromepet');
 
@@ -14,11 +15,18 @@ chromepet({
   publishingVersion: publishingVersion,
   watchIntervalMS: 1000,
 })
-.watch(function(err, extension) {
-  if (err) {
-    console.log('Fail to fetch update', error);
-    return ;
-  }
-
-  console.log('new version released', extension.version);
+.watch()
+.on('error', function(error) {
+  console.error('Fail to fetch', error);
+})
+.on('data', function(extension) {
+  console.log(util.format('Publishing version: %s; Published version: %s; Not published yet',
+    publishingVersion,
+    extension.version));
+})
+.on('end', function(extension, totalSeconds) {
+  console.log(util.format('New version %s is published! %s.',
+    extension.version,
+    extension.interactionCount));
+  console.log('Total seconds:', totalSeconds);
 });

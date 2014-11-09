@@ -20,12 +20,18 @@
     "node": ">=0.7.12",
     "npm": ">=1.4.6"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ./test/zenhub.js"
+  },
   "dependencies": {
     "cheerio": "^0.18.0",
     "node-slack": "0.0.5",
     "request": "^2.47.0",
     "underscore": "^1.7.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "mocha": "^2.0.1"
+  }
 }

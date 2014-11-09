@@ -1,4 +1,4 @@
-var util = require('util');
+var EventEmitter = require('events').EventEmitter;
 
 var _ = require('underscore');
 var request = require('request');
@@ -39,6 +39,10 @@ var ChromePet = function(options) {
 ChromePet.prototype.watch = function() {
   this.timer = Timer.start();
   this.scraping = setInterval(this._scrape.bind(this), this.options.watchIntervalMS);
+
+  this.emitter = new EventEmitter();
+
+  return this.emitter;
 };
 
 
@@ -46,26 +50,29 @@ ChromePet.prototype._scrape = function() {
   var me = this;
 
   request(this.options.extensionURL, function(err, response, body) {
-    var extension = me._parseExtensionInfo(body);
-    if (me._isPublished(extension.version)) {
-       me.stopScraping(extension);
+    if (err) {
+      return me.stopScraping(err);
     }
 
-    console.log(util.format('Publishing version: %s; Published version: %s; Not published yet',
-      me.options.publishingVersion,
-      extension.version));
+    var extension = me._parseExtensionInfo(body);
+    if (me._isPublished(extension.version)) {
+       me.stopScraping(null, extension);
+    }
+
+    me.emitter.emit('data', extension);
   });
 };
 
 
-ChromePet.prototype.stopScraping = function(extension) {
-  console.log(util.format('New version %s is published! %s.',
-    extension.version,
-    extension.interactionCount));
+ChromePet.prototype.stopScraping = function(err, extension) {
+  if (err) {
+    return this.emitter.emit('error', err);
+  }
 
-  console.log('Total seconds:', this.timer.end());
+  clearInterval(this.scraping);
 
-  return clearInterval(this.scraping);
+  var totalSeconds = this.timer.end();
+  this.emitter.emit('end', extension, totalSeconds);
 };
 
 

@@ -4,10 +4,14 @@ ChromePet
 Report new extension version published on Chrome Web Store
 
 ## Quick Start
-This file is to check if a new version of ZenHub Chrome Extension has been published on Chrome Web Store.
+```
+npm install chromepet
+```
+
+This file `example/zenhub.js` is to check if a new version of ZenHub Chrome Extension has been published on Chrome Web Store.
 
 ```js
-var chromepet = require('./src/chromepet');
+var chromepet = require('chromepet');
 
 chromepet({
   extensionURL: 'https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd/details',
@@ -35,6 +39,7 @@ New version 1.0.3 is published! UserDownloads:9,823.
 Total seconds: 1.132
 ```
 
+
 ## Read Chrome Extension's Version from manifest.json
 ```js
 var fs = require('fs');
@@ -42,7 +47,7 @@ var path = require('path');
 var join = path.join;
 var util = require('util');
 
-var chromepet = require('../src/chromepet');
+var chromepet = require('chromepet');
 
 var manifestPath = join(__dirname, './manifest.json');
 console.log('reading manifest from path', manifestPath);
@@ -71,5 +76,7 @@ chromepet({
 });
 ```
 
+
 ## Contributors
 * [Leo Zhang](https://github.com/zhangchiqing)
+

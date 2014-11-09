@@ -2,7 +2,7 @@
   "author": "Leo Zhang <zhangchiqing@gmail.com>",
   "name": "chromepet",
   "description": "Report new extension version published on Chrome Web Store",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "homepage": "https://github.com/ZenHubIO/chromepet",
   "keywords": [
     "chrome",

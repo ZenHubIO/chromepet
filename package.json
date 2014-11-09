@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "cheerio": "^0.18.0",
+    "commander": "^2.5.0",
     "node-slack": "0.0.5",
     "request": "^2.47.0",
     "underscore": "^1.7.0"
